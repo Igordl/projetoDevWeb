@@ -1,0 +1,218 @@
+<HTML>
+
+<HEAD>
+    <TITLE>Cadastra Pacientes</TITLE>
+</HEAD>
+
+<BODY>
+    <div
+        style="position: fixed; right: 0; left: 0; background-color: rgb(187, 187, 187); height: 10%; margin-top: -12%;">
+        <H1>LOGO DA CLINICA</H1>
+    </div>
+    <div style="position: fixed; right: 0; left: 0; margin-top: -5.2%; ">
+        <div>
+            <div class="topnav" style="background-color: #333; overflow: hidden;">
+                <a class="active" href="#top"
+                    style="float: left; color: #f2f2f2;
+                text-align: center; padding: 14px 16px; padding-left: 12%; text-decoration: none; font-size: 17px;">Home</a>
+                <a href="#agendar_consulta" style="float: left; color: #f2f2f2;
+                text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;">Agendar Consultas</a>
+                <a href="#consultas_agendadas" style="float: left; color: #f2f2f2;
+                text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;">Consultas
+                    Agendadas</a>
+                <a href="#pacientes" style="float: left; color: #f2f2f2;
+                text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;">Pacientes</a>
+                <a href="#referenciados" style="float: left; color: #f2f2f2;
+                text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;">Referenciados</a>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 0% 10% 10% 10%; margin-top: 12%; background-color: rgb(231, 231, 231);">
+        <div style="height: 15%;">
+
+        </div>
+        <div name="agendar_consulta" id="agendar_consulta">
+            <div>
+                <h1>Agendar consulta</h1>
+                <hr />
+            </div>
+
+            <div style="line-height: 20pt">
+                <div>
+                    <form action="localhost:8080/agenda_consulta" method="post">
+                        <div>
+                            <label for="nome">Nome:</label>
+                            <input type="search" id="nome" name="name" />
+                        </div>
+                        <div>
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" id="telefone" name="telefone" />
+                        </div>
+                        <div>
+                            <label for="especialidade">Especialidade:</label>
+                            <select name="especialidade" id="especialidade">
+                                <option value="0">(Escolha uma)</option>
+                                <option value="1">Odontologia</option>
+                                <option value="2">Cardiologista</option>
+                                <option value="3">Endocrinologista</option>
+                                <option value="4">Psiquiatra</option>
+                                <option value="5">Nutrólogo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="medico">Profissional(a):</label>
+                            <select name="medico" id="medico">
+                                <option value="0">(Escolha uma)</option>
+                                <option value="1">Dr. Gustavo Freitas</option>
+                                <option value="2">Dra. Mariana Lucena</option>
+                                <option value="3">Dr. Gabriel Almeida</option>
+                                <option value="4">Dra. Iasmin Mendes</option>
+                                <option value="5">Dr. Felipe Coutinho</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="username">Data:</label>
+                            <input type="date" id="data" name="data" />
+                        </div>
+
+                        <div class="button">
+                            <INPUT type="reset" name="limpar" value="Limpar">
+                            <INPUT class="btn btn-info" type="submit" name="agendar" value="Agendar">
+
+                        </div>
+                        <hr />
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div name="consultas_agendadas" id="consultas_agendadas">
+            <div>
+                <h1>Consultas agendadas</h1>
+                <hr />
+            </div>
+            <div>
+                <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                    <div style="padding: 2px 16px;">
+                        <h4><b>John Doe</b></h4>
+                        <p>Cardiologia</p>
+                        <p>23/11/2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div name="pacientes" id="pacientes">
+            <div>
+                <h1>Pacientes</h1>
+                <hr />
+            </div>
+            <div style="line-height: 20pt">
+                <h3>Cadastra paciente</h3>
+                <form action=" localhost:8080/agendaPaciente" method="post">
+                    <div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="name" />
+                    </div>
+                    <div>
+                        <label for="dataNascimento">Data nascimento:</label>
+                        <input type="date" id="dateNascimento" name="dataNascimeto" />
+                    </div>
+                    <div>
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" />
+                    </div>
+                    <div>
+                        <label for="username">E-mail:</label>
+                        <input type="username" id="username" name="username" />
+                    </div>
+                    <div class="button">
+                        <INPUT type="reset" name="limpar" value="Limpar">
+                        <INPUT class="btn btn-info" type="submit" name="cadastrar" value="Cadastrar">
+
+                    </div>
+                </form>
+            </div>
+            <div>
+                <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                    <div style="padding: 2px 16px 10px;">
+                        <h4><b>Pedro Marreiro</b></h4>
+                        <p>Idade: 27</p>
+                        <p>23/11/2021</p>
+                        <INPUT class="btn btn-info" type="submit" name="editar" value="Editar">
+                    </div>
+                </div>
+                <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                    <div style="padding: 2px 16px 10px;">
+                        <h4><b>Solange Batista</b></h4>
+                        <p>Idade: 56</p>
+                        <p>24/11/2021</p>
+                        <INPUT class="btn btn-info" type="submit" name="editar" value="Editar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div name="referenciados" id="referenciados">
+            <div>
+                <h1>Referenciados</h1>
+                <hr />
+            </div>
+            <div style="line-height: 20pt">
+                <h3>Cadastra referenciado</h3>
+                <form action=" localhost:8080/agendaPaciente" method="post">
+                    <div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="name" />
+                    </div>
+                    <div>
+                        <label for="dataNascimento">Data nascimento:</label>
+                        <input type="date" id="dateNascimento" name="dataNascimeto" />
+                    </div>
+                    <div>
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" />
+                    </div>
+                    <div>
+                        <label for="username">E-mail:</label>
+                        <input type="username" id="username" name="username" />
+                    </div>
+                    <div>
+                        <label for="especialidade">Especialidade:</label>
+                        <input type="text" id="especialidade" name="especialidade" />
+                    </div>
+                    <div>
+                        <label for="atendimento">Dias de atendimento:</label>
+                        <input type="checkbox" id="seg" name="seg" />
+                        <label for="segunda">Segunda-feira</label>
+                        <input type="checkbox" id="ter" name="ter" />
+                        <label for="terca">Terça-feira</label>
+                        <input type="checkbox" id="qua" name="qua" />
+                        <label for="quarta">Quarta-feira</label>
+                        <input type="checkbox" id="qui" name="qui" />
+                        <label for="quinta">Quinta-feira</label>
+                        <input type="checkbox" id="sex" name="sex" />
+                        <label for="sexta">Sexta-feira</label>
+                        <input type="checkbox" id="sab" name="sab" />
+                        <label for="sabado">Sábado</label>
+                    </div>
+                    <div class="button">
+                        <INPUT type="reset" name="limpar" value="Limpar">
+                        <INPUT class="btn btn-info" type="submit" name="cadastrar" value="Cadastrar">
+
+                    </div>
+                </form>
+            </div>
+            <div>
+                <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                    <div style="padding: 2px 16px;">
+                        <h4><b>John Doe</b></h4>
+                        <p>Cardiologia</p>
+                        <p>23/11/2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</BODY>
+
+</HTML>
