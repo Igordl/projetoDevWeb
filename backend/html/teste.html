@@ -13,7 +13,6 @@
         }
 
         var test = (x) => {
-            console.log(x)
             let result = fetch('/pacientes')
             result.then(response => response.json()).then(
                 function (data) {
