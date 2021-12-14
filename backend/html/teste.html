@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <script>
+        var send = () => {
+            let v = document.getElementById('add').value
+            fetch("/pacientes", {
+                headers: new Headers({ 'content-type': 'application/json' }),
+                method: "POST",
+                body: JSON.stringify({ "paciente": v })
+            });
+            console.log('Post realizado com sucesso!!!');
+        }
+
+        var test = (x) => {
+            console.log(x)
+            let result = fetch('/pacientes')
+            result.then(response => response.json()).then(
+                function (data) {
+                    let res = "";
+                    data.forEach(element => {
+                        res += " | " + element.id + " " + element.paciente;
+                    });
+                    document.getElementById("convert").innerHTML = res;
+                }
+            )
+            console.log('Get realizado com sucesso!!!');
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="convert"></div>
+    <input id="add" type="text" value>
+    <input type="button" value="POST" onclick="send()">
+    <input type="button" value="GET" onclick="test()">
+</body>
+
+</html>
