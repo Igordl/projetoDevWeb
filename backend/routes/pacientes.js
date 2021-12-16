@@ -10,7 +10,9 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   console.log(req.body);
-  pacientes.push({ 'id': pacientes.length + 1, 'paciente': req.body.paciente });
+  pacientes.push({
+    'id': 1, 'nomePaciente': req.body.nomePaciente, 'dataNascimento': req.body.dtNascimento, 'telefone': req.body.telefone, 'email': req.body.email
+  });
   res.json(pacientes);
   console.log(pacientes);
 });

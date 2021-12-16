@@ -1,13 +1,23 @@
 <html>
 
 <head>
+    <title>Cadastra pacientes</title>
     <script>
-        var send = () => {
-            let v = document.getElementById('add').value
+        var cadastraPaciente = () => {
+            let nomePaciente = document.getElementById('nomePaciente').value
+            let dtNascimento = document.getElementById('dtNascimento').value
+            let telefone = document.getElementById('telefone').value
+            let email = document.getElementById('email').value
+
             fetch("/pacientes", {
                 headers: new Headers({ 'content-type': 'application/json' }),
                 method: "POST",
-                body: JSON.stringify({ "paciente": v })
+                body: JSON.stringify({
+                    "nomePaciente": nomePaciente,
+                    "dataNascimento": dtNascimento,
+                    "telefone": telefone,
+                    "email": email
+                })
             });
             console.log('Post realizado com sucesso!!!');
         }
@@ -18,7 +28,7 @@
                 function (data) {
                     let res = "";
                     data.forEach(element => {
-                        res += " | " + element.id + " " + element.paciente;
+                        res += " | " + element.id + " " + element.nomePaciente;
                     });
                     document.getElementById("convert").innerHTML = res;
                 }
@@ -32,8 +42,60 @@
 <body>
     <div id="convert"></div>
     <input id="add" type="text" value>
-    <input type="button" value="POST" onclick="send()">
+    <input type="button" value="POST" onclick="cadastraPaciente()">
     <input type="button" value="GET" onclick="test()">
+
+    <div name="pacientes" id="pacientes">
+        <div>
+            <h1>Pacientes</h1>
+            <hr />
+        </div>
+        <div style="line-height: 20pt">
+            <h3>Cadastra paciente</h3>
+            <form>
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nomePaciente" name="name" />
+                </div>
+                <div>
+                    <label for="dataNascimento">Data nascimento:</label>
+                    <input type="date" id="dtNascimento" name="dataNascimeto" />
+                </div>
+                <div>
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" />
+                </div>
+                <div>
+                    <label for="username">E-mail:</label>
+                    <input type="username" id="email" name="username" />
+                </div>
+                <div class="button">
+                    <INPUT type="reset" name="limpar" value="Limpar">
+                    <INPUT class="btn btn-info" type="submit" name="cadastrar" value="Cadastrar"
+                        onclick="cadastraPaciente()">
+
+                </div>
+
+            </form>
+            <div>
+
+                <input type="search" id="buscar" name="buscar" value="Buscar" />
+                <INPUT class="btn btn-info" type="submit" name="Buscar" value="Buscar">
+
+            </div>
+        </div>
+        <div>
+            <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                <div style="padding: 2px 16px 10px;">
+                    <h4><b>Pedro Marreiro</b></h4>
+                    <p>Idade: 27</p>
+                    <p>23/11/2021</p>
+                    <INPUT class="btn btn-info" type="submit" name="editar" value="Editar">
+                </div>
+            </div>
+            
+        </div>
+    </div>
 </body>
 
 </html>
